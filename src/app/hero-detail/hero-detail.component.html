@@ -1,9 +1,9 @@
 <div *ngIf="hero">
-  <h2>{{hero.name | uppercase}} Details</h2>
+  <h2>{{hero.name | uppercase}} Details</h2> <!-- filtre uppercase : le nom du héros est rendu en lettres majuscules -->
   <div><span>id: </span>{{hero.id}}</div>
   <div>
     <label>name:
-      <input [(ngModel)]="hero.name" placeholder="name"/>
+      <input [(ngModel)]="hero.name" placeholder="name"/> <!--[(ngModel)] permet le 2-way binding -->
     </label>
   </div>
   <button (click)="goBack()">go back</button>

@@ -9,20 +9,20 @@ import { HeroService } from '../hero.service';
   styleUrls: ['./heroes.component.css']
 })
 export class HeroesComponent implements OnInit {
-  heroes: Hero[];
+  heroes: Hero[]; // tableau d'objets de type Hero
 
-  constructor(private heroService: HeroService) { }
+  constructor(private heroService: HeroService) { } // injection de dépendance : le service HeroService est "injecté" via le constructeur ; le service est désormais accessible dans la classe
 
-  ngOnInit() {
+  ngOnInit() { // méthode de cycle : à l'initialisation du composant, on appelle la méthode getHeroes()
     this.getHeroes();
   }
 
   getHeroes(): void {
     this.heroService.getHeroes()
-    .subscribe(heroes => this.heroes = heroes);
+    .subscribe(heroes => this.heroes = heroes); // le service est invoqué de manière asynchrone
   }
 
-  add(name: string): void {
+  add(name: string): void { // ajout d'un héros via le service
     name = name.trim();
     if (!name) { return; }
     this.heroService.addHero({ name } as Hero)
@@ -31,7 +31,7 @@ export class HeroesComponent implements OnInit {
       });
   }
 
-  delete(hero: Hero): void {
+  delete(hero: Hero): void { // suppression d'un héros via le service
     this.heroes = this.heroes.filter(h => h !== hero);
     this.heroService.deleteHero(hero).subscribe();
   }

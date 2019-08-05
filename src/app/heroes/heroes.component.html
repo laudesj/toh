@@ -4,14 +4,16 @@
   <label>Hero name:
     <input #heroName />
   </label>
-  <!-- (click) passes input value to add() and then clears the input -->
+  <!-- (click) passes input value to add() and then clears the input 
+       (click) transmet la valeur de l'input à la méthode add() puis efface la valeur de l'input
+  -->
   <button (click)="add(heroName.value); heroName.value=''">
     add
   </button>
 </div>
 
 <ul class="heroes">
-  <li *ngFor="let hero of heroes">
+  <li *ngFor="let hero of heroes"> <!-- boucle for sur les heroes -->
     <a routerLink="/detail/{{hero.id}}">
       <span class="badge">{{hero.id}}</span> {{hero.name}}
     </a>

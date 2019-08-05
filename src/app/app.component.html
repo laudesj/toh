@@ -1,7 +1,7 @@
-<h1>{{title}}</h1>
+<h1>{{title}}</h1> <!-- affichage de la propriété title définie dans la classe du composant app -->
 <nav>
-  <a routerLink="/dashboard">Dashboard</a>
+  <a routerLink="/dashboard">Dashboard</a> <!-- routerLink permet de créer un lien vers une route définie dans app-routing.module.ts -->
   <a routerLink="/heroes">Heroes</a>
 </nav>
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> <!-- emplacement dans lequel sera affiché un état particulier de l'application basé sur la route empruntée  -->
 <app-messages></app-messages>
